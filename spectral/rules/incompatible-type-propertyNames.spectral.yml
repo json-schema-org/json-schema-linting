@@ -1,0 +1,26 @@
+rules:
+  propertyNames-only-applies-to-objects:
+    description: The propertyNames keyword is incompatible with the specified type.
+    severity: error
+    given:
+      - $
+      - $..[?(@.propertyNames!=null)]
+    then:
+      - function: schema
+        functionOptions:
+          schema:
+            if:
+              properties:
+                type:
+                  enum:
+                    - array
+                    - string
+                    - number
+                    - integer
+                    - boolean
+                    - 'null'
+              required:
+                - type
+            then:
+              properties:
+                propertyNames: false

@@ -1,0 +1,26 @@
+rules:
+  unevaluatedProperties-only-applies-to-objects:
+    description: The unevaluatedProperties keyword is incompatible with the specified type.
+    severity: error
+    given:
+      - $
+      - $..[?(@.unevaluatedProperties!=null)]
+    then:
+      - function: schema
+        functionOptions:
+          schema:
+            if:
+              properties:
+                type:
+                  enum:
+                    - array
+                    - string
+                    - number
+                    - integer
+                    - boolean
+                    - 'null'
+              required:
+                - type
+            then:
+              properties:
+                unevaluatedProperties: false

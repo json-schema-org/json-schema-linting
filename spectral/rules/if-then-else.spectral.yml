@@ -1,0 +1,41 @@
+rules:
+  if-requires-then-or-else:
+    description: 'The `if` keyword will be ignored unless an adjacent `then` and/or `else` keyword is present.'
+    severity: error
+    given:
+      - $
+      - $..[?(@.if)]
+    then:
+      - function: schema
+        functionOptions:
+          schema:
+            if:
+              not:
+                anyOf:
+                  - required: 
+                    - then
+                  - required:
+                    - else
+            then:
+              properties:
+                if: false
+  then-and-else-require-if:
+    description: 'The `then` and `else` keywords will be ignored unless an adjacent `if` keyword is present.'
+    severity: error
+    given:
+      - $
+      - $..[?(@.then)]
+      - $..[?(@.else)]
+    then:
+      - function: schema
+        functionOptions:
+          schema:
+            if:
+              not:
+                required:
+                  - if
+            then:
+              properties:
+                then: false
+                else: false
+                

@@ -1,0 +1,8 @@
+rules:
+  require-id-root:
+    description: Root must include $id.
+    severity: error
+    given: $
+    then:
+      function: truthy
+      field: $id

@@ -1,0 +1,67 @@
+rules:
+  const-should-stand-alone:
+    description: Schemas with const should not have additional validation
+    severity: error
+    given: $..[?(@.const)]
+    then:
+      - function: undefined
+        field: type
+      - function: undefined
+        field: minimum
+      - function: undefined
+        field: maximum
+      - function: undefined
+        field: exclusiveMinimum
+      - function: undefined
+        field: exclusiveMaximum
+      - function: undefined
+        field: multipleOf
+      - function: undefined
+        field: minLength
+      - function: undefined
+        field: maxLength
+      - function: undefined
+        field: pattern
+      - function: undefined
+        field: minItems
+      - function: undefined
+        field: maxItems
+      - function: undefined
+        field: items
+      - function: undefined
+        field: uniqueItems
+      - function: undefined
+        field: additionalItems
+      - function: undefined
+        field: unevaluatedItems
+      - function: undefined
+        field: contains
+      - function: undefined
+        field: minContains
+      - function: undefined
+        field: maxContains
+      - function: undefined
+        field: properties
+      - function: undefined
+        field: additionalProperties
+      - function: undefined
+        field: unevaluatedProperties
+      - function: undefined
+        field: propertyNames
+      - function: undefined
+        field: patternProperties
+      - function: undefined
+        field: minProperties
+      - function: undefined
+        field: maxProperties
+      - function: undefined
+        field: required
+      - function: undefined
+        field: dependentRequired
+      - function: undefined
+        field: dependentSchema
+      - function: undefined
+        field: dependencies
+      - function: undefined
+        field: enum
+

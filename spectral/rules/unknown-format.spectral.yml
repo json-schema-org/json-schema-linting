@@ -1,0 +1,31 @@
+rules:
+  unknown-formats:
+    description: '`format` values not defined in the specification may not be recognized'
+    severity: warn
+    given:
+      - $
+      - $..*
+    then:
+      function: enumeration
+      field: format
+      functionOptions:
+        values:
+          - date
+          - date-time
+          - duration
+          - email
+          - hostname
+          - idn-email
+          - idn-hostname
+          - ipv4
+          - ipv6
+          - iri
+          - iri-reference
+          - json-pointer
+          - regex
+          - relative-json-pointer
+          - time
+          - uri
+          - uri-reference
+          - uri-template
+          - uuid

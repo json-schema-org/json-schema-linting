@@ -1,0 +1,32 @@
+extends:
+  - ./enum-independence.spectral.yml
+  - ./const-independence.spectral.yml
+  - ./incompatible-type-minimum.spectral.yml
+  - ./incompatible-type-maximum.spectral.yml
+  - ./incompatible-type-exclusiveMaximum.spectral.yml
+  - ./incompatible-type-exclusiveMinimum.spectral.yml
+  - ./incompatible-type-multipleOf.spectral.yml
+  - ./incompatible-type-minLength.spectral.yml
+  - ./incompatible-type-maxLength.spectral.yml
+  - ./incompatible-type-properties.spectral.yml
+  - ./incompatible-type-propertyNames.spectral.yml
+  - ./incompatible-type-patternProperties.spectral.yml
+  - ./incompatible-type-additionalProperties.spectral.yml
+  - ./incompatible-type-unevaluatedProperties.spectral.yml
+  - ./incompatible-type-minProperties.spectral.yml
+  - ./incompatible-type-maxProperties.spectral.yml
+  - ./incompatible-type-required.spectral.yml
+  - ./incompatible-type-dependentRequired.spectral.yml
+  - ./incompatible-type-dependentSchema.spectral.yml
+  - ./incompatible-type-dependencies.spectral.yml
+  - ./incompatible-type-items.spectral.yml
+  - ./incompatible-type-minItems.spectral.yml
+  - ./incompatible-type-maxItems.spectral.yml
+  - ./incompatible-type-uniqueItems.spectral.yml
+  - ./incompatible-type-additionalItems.spectral.yml
+  - ./incompatible-type-unevaluatedItems.spectral.yml
+  - ./incompatible-type-contains.spectral.yml
+  - ./incompatible-type-minContains.spectral.yml
+  - ./incompatible-type-maxContains.spectral.yml
+
+

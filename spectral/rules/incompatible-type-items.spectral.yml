@@ -1,0 +1,26 @@
+rules:
+  items-only-applies-to-objects:
+    description: The items keyword is incompatible with the specified type.
+    severity: error
+    given:
+      - $
+      - $..[?(@.items!=null)]
+    then:
+      - function: schema
+        functionOptions:
+          schema:
+            if:
+              properties:
+                type:
+                  enum:
+                    - object
+                    - string
+                    - number
+                    - integer
+                    - boolean
+                    - 'null'
+              required:
+                - type
+            then:
+              properties:
+                items: false

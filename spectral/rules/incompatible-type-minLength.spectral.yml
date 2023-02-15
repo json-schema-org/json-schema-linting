@@ -1,0 +1,26 @@
+rules:
+  minLength-only-applies-to-strings:
+    description: The minLength keyword is incompatible with the specified type.
+    severity: error
+    given:
+      - $
+      - $..[?(@.minLength!=null)]
+    then:
+      - function: schema
+        functionOptions:
+          schema:
+            if:
+              properties:
+                type:
+                  enum:
+                    - object
+                    - array
+                    - number
+                    - integer
+                    - boolean
+                    - 'null'
+              required:
+                - type
+            then:
+              properties:
+                minLength: false

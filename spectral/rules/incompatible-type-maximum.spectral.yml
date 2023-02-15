@@ -1,0 +1,25 @@
+rules:
+  maximum-only-applies-to-numbers:
+    description: The maximum keyword is incompatible with the specified type.
+    severity: error
+    given:
+      - $
+      - $..[?(@.maximum!=null)]
+    then:
+      - function: schema
+        functionOptions:
+          schema:
+            if:
+              properties:
+                type:
+                  enum:
+                    - object
+                    - array
+                    - string
+                    - boolean
+                    - 'null'
+              required:
+                - type
+            then:
+              properties:
+                maximum: false
