@@ -4,7 +4,7 @@ rules:
     severity: warn
     given:
       - $
-      - $..*
+      - $..[?(@.format)]
     then:
       function: enumeration
       field: format
