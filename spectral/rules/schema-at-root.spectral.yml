@@ -1,0 +1,8 @@
+rules:
+  require-schema-root:
+    description: Root must include $schema.
+    severity: error
+    given: $
+    then:
+      function: truthy
+      field: $schema

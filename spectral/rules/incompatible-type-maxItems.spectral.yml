@@ -1,0 +1,26 @@
+rules:
+  maxItems-only-applies-to-objects:
+    description: The maxItems keyword is incompatible with the specified type.
+    severity: error
+    given:
+      - $
+      - $..[?(@.maxItems!=null)]
+    then:
+      - function: schema
+        functionOptions:
+          schema:
+            if:
+              properties:
+                type:
+                  enum:
+                    - object
+                    - string
+                    - number
+                    - integer
+                    - boolean
+                    - 'null'
+              required:
+                - type
+            then:
+              properties:
+                maxItems: false

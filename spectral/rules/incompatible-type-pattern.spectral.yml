@@ -1,0 +1,26 @@
+rules:
+  pattern-only-applies-to-strings:
+    description: The pattern keyword is incompatible with the specified type.
+    severity: error
+    given:
+      - $
+      - $..[?(@.pattern!=null)]
+    then:
+      - function: schema
+        functionOptions:
+          schema:
+            if:
+              properties:
+                type:
+                  enum:
+                    - object
+                    - array
+                    - number
+                    - integer
+                    - boolean
+                    - 'null'
+              required:
+                - type
+            then:
+              properties:
+                pattern: false

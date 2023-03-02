@@ -1,0 +1,26 @@
+rules:
+  required-only-applies-to-objects:
+    description: The required keyword is incompatible with the specified type.
+    severity: error
+    given:
+      - $
+      - $..[?(@.required!=null)]
+    then:
+      - function: schema
+        functionOptions:
+          schema:
+            if:
+              properties:
+                type:
+                  enum:
+                    - array
+                    - string
+                    - number
+                    - integer
+                    - boolean
+                    - 'null'
+              required:
+                - type
+            then:
+              properties:
+                required: false

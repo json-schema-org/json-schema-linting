@@ -1,0 +1,25 @@
+rules:
+  exclusiveMaximum-only-applies-to-numbers:
+    description: The exclusiveMaximum keyword is incompatible with the specified type.
+    severity: error
+    given:
+      - $
+      - $..[?(@.exclusiveMaximum!=null)]
+    then:
+      - function: schema
+        functionOptions:
+          schema:
+            if:
+              properties:
+                type:
+                  enum:
+                    - object
+                    - array
+                    - string
+                    - boolean
+                    - 'null'
+              required:
+                - type
+            then:
+              properties:
+                exclusiveMaximum: false

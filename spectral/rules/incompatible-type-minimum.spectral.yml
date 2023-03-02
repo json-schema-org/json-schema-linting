@@ -1,0 +1,25 @@
+rules:
+  minimum-only-applies-to-numbers:
+    description: The minimum keyword is incompatible with the specified type.
+    severity: error
+    given:
+      - $
+      - $..[?(@.minimum!=null)]
+    then:
+      - function: schema
+        functionOptions:
+          schema:
+            if:
+              properties:
+                type:
+                  enum:
+                    - object
+                    - array
+                    - string
+                    - boolean
+                    - 'null'
+              required:
+                - type
+            then:
+              properties:
+                minimum: false

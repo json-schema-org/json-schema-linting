@@ -1,0 +1,26 @@
+rules:
+  minProperties-only-applies-to-objects:
+    description: The minProperties keyword is incompatible with the specified type.
+    severity: error
+    given:
+      - $
+      - $..[?(@.minProperties!=null)]
+    then:
+      - function: schema
+        functionOptions:
+          schema:
+            if:
+              properties:
+                type:
+                  enum:
+                    - array
+                    - string
+                    - number
+                    - integer
+                    - boolean
+                    - 'null'
+              required:
+                - type
+            then:
+              properties:
+                minProperties: false

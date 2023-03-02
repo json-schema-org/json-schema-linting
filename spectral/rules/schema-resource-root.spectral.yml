@@ -1,0 +1,8 @@
+rules:
+  disallow-schema-unless-resource-root:
+    description: $schema is not allowed unless $id is present.
+    severity: error
+    given: $..[?(!@['$id'] && @['$schema'])]
+    then:
+      function: undefined
+      field: $schema

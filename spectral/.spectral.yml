@@ -1,0 +1,7 @@
+extends:
+  - ./rules/schema-at-root.spectral.yml
+  - ./rules/schema-resource-root.spectral.yml
+  - ./rules/id-at-root.spectral.yml
+  - ./rules/incompatible-type-validations.spectral.yml
+  - ./rules/if-then-else.spectral.yml
+  - ./rules/unknown-format.spectral.yml
